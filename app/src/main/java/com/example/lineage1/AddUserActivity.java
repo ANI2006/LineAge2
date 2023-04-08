@@ -54,7 +54,7 @@ public class AddUserActivity extends AppCompatActivity {
                 firstName=binding.edtFirstName.getText().toString().trim();
                 lastName=binding.edtLastName.getText().toString().trim();
                 // gender=binding.edtGender.getText().toString().trim();
-                //age=Integer.parseInt(binding.edtAge.getText().toString().trim());
+                age=Integer.parseInt(binding.edtAge.getText().toString().trim());
                 description=binding.edtDescription.getText().toString().trim();
 
                 projectModel.firstName=firstName;
@@ -63,14 +63,14 @@ public class AddUserActivity extends AppCompatActivity {
                 projectModel.description=description;
 
                 userViewModel.updateUser(projectModel);
-                //Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show();
 
                 finish();
             }else {
                 firstName=binding.edtFirstName.getText().toString().trim();
                 lastName=binding.edtLastName.getText().toString().trim();
                 // gender=binding.edtGender.getText().toString().trim();
-                //age=Integer.parseInt(binding.edtAge.getText().toString().trim());
+                age=Integer.parseInt(binding.edtAge.getText().toString().trim());
                 description=binding.edtDescription.getText().toString().trim();
 
                 projectModel=new ProjectModel();
@@ -80,17 +80,12 @@ public class AddUserActivity extends AppCompatActivity {
                 projectModel.description=description;
                 userViewModel.insertUser(projectModel);
 
-                //Toast.makeText(this, "Inserted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Inserted", Toast.LENGTH_SHORT).show();
 
 
                 finish();
 
-
             }
-
-
-
-
 
         });
     }

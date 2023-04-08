@@ -7,10 +7,11 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.lineage1.ProjectModel;
+import com.example.lineage1.RelationUser;
 
-@Database(entities = {ProjectModel.class},exportSchema = false,version = 1)
+@Database(entities = {ProjectModel.class, RelationUser.class},exportSchema = false,version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-    //, RelationUser.class
+
 
     public static  final String DATABASE_NAME="user_info_database.db";
     public static AppDatabase instance;
