@@ -19,7 +19,7 @@ public class UserViewModel extends AndroidViewModel {
     public UserViewModel(@NonNull Application application) {
         super(application);
 
-        appRepo=  new AppRepo(application);
+        appRepo=   AppRepo(application);
     }
 
     public void insertUser(ProjectModel projectModel){

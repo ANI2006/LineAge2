@@ -18,13 +18,17 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements OnClickItemInterface{
 
+    private UserAdapter adapter;
     private ActivityMainBinding binding;
     private UserViewModel userViewModel;
-    private UserAdapter adapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         binding= ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements OnClickItemInterf
 
     }
 
+
     @Override
     public void onClickItem(ProjectModel projectModel, boolean isEdit) {
 
@@ -71,4 +76,7 @@ public class MainActivity extends AppCompatActivity implements OnClickItemInterf
 
 
     }
+
+
+
 }

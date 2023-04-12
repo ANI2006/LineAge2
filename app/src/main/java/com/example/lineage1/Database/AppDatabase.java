@@ -16,7 +16,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public static  final String DATABASE_NAME="user_info_database.db";
     public static AppDatabase instance;
     private static  final  Object LOCK=new Object();
-    public      UserDao userDao;
+    public   abstract    UserDao userDao;
 
     public static AppDatabase getInstance(Context context){
         if(instance == null){
