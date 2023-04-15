@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.lineage1.Database.UserDao;
 import com.example.lineage1.ProjectModel;
 import com.example.lineage1.Repository.AppRepo;
 
@@ -19,7 +20,12 @@ public class UserViewModel extends AndroidViewModel {
     public UserViewModel(@NonNull Application application) {
         super(application);
 
-        appRepo=   AppRepo(application);
+        appRepo= new AppRepo(application) {
+            @Override
+            public UserDao userDao() {
+                return null;
+            }
+        };
     }
 
     public void insertUser(ProjectModel projectModel){

@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.ColumnInfo;
 
 import com.example.lineage1.Database.AppDatabase;
+import com.example.lineage1.Database.UserDao;
 import com.example.lineage1.ProjectModel;
 
 import java.util.List;
@@ -15,11 +16,12 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class AppRepo {
+public abstract class AppRepo {
 
 
 
     private AppDatabase appDatabase;
+    public   abstract UserDao userDao();
     private Executor executor= Executors.newSingleThreadExecutor();
 
     public AppRepo(Context context){
@@ -33,7 +35,7 @@ public class AppRepo {
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                appDatabase.userDao.insertUser(projectModel);
+                appDatabase.userDao().insertUser(projectModel);
 
             }
         });
@@ -43,7 +45,7 @@ public class AppRepo {
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                appDatabase.userDao.updateUser(projectModel);
+                appDatabase.userDao().updateUser(projectModel);
             }
         });
     }
@@ -52,7 +54,7 @@ public class AppRepo {
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                appDatabase.userDao.deleteUser(projectModel);
+                appDatabase.userDao().deleteUser(projectModel);
             }
         });
     }
@@ -62,7 +64,7 @@ public class AppRepo {
         Callable<List<ProjectModel>> callable=new Callable<List<ProjectModel>>() {
             @Override
             public List<ProjectModel> call() throws Exception {
-                return appDatabase.userDao.getAllUserFuture();
+                return appDatabase.userDao().getAllUserFuture();
             }
         };
 
@@ -74,7 +76,7 @@ public class AppRepo {
 
     public LiveData<List<ProjectModel>> getAllUserLive() {
 
-        return appDatabase.userDao.getAllUserLive();
+        return appDatabase.userDao().getAllUserLive();
 
 
 
