@@ -26,6 +26,9 @@
                 android:value="" />
         </activity>
         <activity android:name=".AddUserActivity"></activity>
+        <activity android:name=".AddRelationActivity"></activity>
+
+
     </application>
 
 </manifest>

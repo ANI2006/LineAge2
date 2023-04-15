@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="relationUser"
+            type="com.example.lineage1.RelationUser" />
+
+        <variable
+            name="listener"
+            type="com.example.lineage1.OnClickItemInterface" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <View
+                android:id="@+id/view"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:background="#000000"/>
+            <TextView
+                android:id="@+id/person1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/view"
+                android:text="@{relationUser.person1 ,default=Person1}"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+
+            <TextView
+
+                android:id="@+id/person2"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/person1"
+                android:layout_alignStart="@+id/person1"
+                android:layout_marginEnd="10dp"
+                android:drawablePadding="5dp"
+                android:text="@{relationUser.person2 ,default=Person2}"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+
+                android:drawableTint="#000000"/>
+
+
+            <TextView
+
+                android:id="@+id/Relation"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="-9dp"
+                android:layout_marginEnd="156dp"
+
+                android:layout_marginBottom="25dp"
+                android:drawablePadding="5dp"
+                android:drawableTint="#000000"
+                android:text="@{relationUser.relation ,default=Relation}"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imgDelete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginVertical="10dp"
+                android:layout_marginEnd="8dp"
+                android:onClick="@{()-> listener.onClickItem(relationUser,false)}"
+
+                android:src="@drawable/delete"
+                app:tint="#000000" />
+
+            <ImageView
+                android:id="@+id/imgEdit"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/imgDelete"
+                android:layout_alignParentEnd="true"
+
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="5dp"
+
+                android:onClick="@{()-> listener.onClickItem(relationUser,true)}"
+                android:src="@drawable/edit"
+
+                app:tint="#000000" />
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</layout>
+
