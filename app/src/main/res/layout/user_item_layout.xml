@@ -45,6 +45,9 @@
                 android:textStyle="bold"/>
 
             <TextView
+
+                android:id="@+id/txtLName"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtUName"
@@ -56,6 +59,8 @@
                 android:textStyle="bold"
 
                 android:drawableTint="#000000"/>
+
+
 
             <ImageView
                 android:id="@+id/imgDelete"

@@ -61,7 +61,7 @@
 
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1.2"
             app:boxBackgroundMode="outline"
             app:boxStrokeWidth="2dp"
@@ -70,8 +70,8 @@
             <AutoCompleteTextView
                 android:id="@+id/edtGender"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Select Gender" />
+                android:layout_height="41dp"
+                android:hint=" Select Gender" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

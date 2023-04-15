@@ -18,7 +18,7 @@ public class AddUserActivity extends AppCompatActivity {
     private ActivityAddUserBinding binding;
     private String firstName,lastName,description,gender;
     private int age;
-    private String[] genders={"Male","Female"};
+    private String[] genders={" Male"," Female"};
     private UserViewModel userViewModel;
     private ProjectModel projectModel;
     private boolean isEdit=false;
@@ -38,10 +38,10 @@ public class AddUserActivity extends AppCompatActivity {
             }
             binding.edtFirstName.setText(projectModel.firstName);
             binding.edtLastName.setText(projectModel.lastName);
-     //       binding.edtGender.setText(projectModel.gender);
-
-       //     binding.edtAge.setText(String.valueOf(projectModel.age));
+            binding.edtGender.setText(projectModel.gender);
+            binding.edtAge.setText(String.valueOf(projectModel.age));
             binding.edtDescription.setText(projectModel.description);
+            isEdit=true;
 
 
         }
@@ -53,13 +53,14 @@ public class AddUserActivity extends AppCompatActivity {
             if(isEdit){
                 firstName=binding.edtFirstName.getText().toString().trim();
                 lastName=binding.edtLastName.getText().toString().trim();
-                // gender=binding.edtGender.getText().toString().trim();
+                gender=binding.edtGender.getText().toString().trim();
                 age=Integer.parseInt(binding.edtAge.getText().toString().trim());
                 description=binding.edtDescription.getText().toString().trim();
 
                 projectModel.firstName=firstName;
                 projectModel.lastName=lastName;
                 projectModel.gender=gender;
+                projectModel.age=age;
                 projectModel.description=description;
 
                 userViewModel.updateUser(projectModel);
@@ -69,7 +70,7 @@ public class AddUserActivity extends AppCompatActivity {
             }else {
                 firstName=binding.edtFirstName.getText().toString().trim();
                 lastName=binding.edtLastName.getText().toString().trim();
-                // gender=binding.edtGender.getText().toString().trim();
+                gender=binding.edtGender.getText().toString().trim();
                 age=Integer.parseInt(binding.edtAge.getText().toString().trim());
                 description=binding.edtDescription.getText().toString().trim();
 
@@ -77,6 +78,7 @@ public class AddUserActivity extends AppCompatActivity {
                 projectModel.firstName=firstName;
                 projectModel.lastName=lastName;
                 projectModel.gender=gender;
+                projectModel.age=age;
                 projectModel.description=description;
                 userViewModel.insertUser(projectModel);
 
